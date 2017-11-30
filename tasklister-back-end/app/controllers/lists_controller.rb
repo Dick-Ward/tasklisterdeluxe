@@ -12,7 +12,7 @@ class ListsController < ApplicationController
   def create
     @list = List.find_or_create_by(list_params)
     if @list.save
-      render json:@list
+      render json: [@list]
     else
       render json:@list.errors
     end
@@ -20,7 +20,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    render json:@list
+    render json:@list, include: [:tasks]
   end
 
   # def edit
@@ -39,6 +39,11 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     @list.destroy
+  end
+
+  def tasks
+    @list = List.find(params[:id])
+    render json: @list.tasks
   end
 
 private

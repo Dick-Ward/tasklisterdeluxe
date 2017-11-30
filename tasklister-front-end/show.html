@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TaskLister D-Lux</title>
+  </head>
+  <body>
+    <h1>Your Lists</h1>
+    <div>
+      <button type="button" class="new-list-button" name="button">New List</button>
+    <br><br>
+      <form action="http://localhost:3000/lists" class="new-form" method="post" style= "visibility: hidden">
+        <label>Name:
+          <input class="new-form-input" type="text" name="list[name]">
+        </label>
+          <input type="submit">
+      </form>
+
+      <ul class="full-list">
+
+      </ul>
+    </div>
+    <script type="text/javascript" src="index.js">
+    </script>
+  </body>
+</html>
